@@ -3,7 +3,7 @@
 #include <vector>
 
 #include <boost/bind.hpp>
-#include <boost/function.hpp>
+#include <functional>
 #include <boost/algorithm/string.hpp>
 #include <boost/foreach.hpp>
 
@@ -14,7 +14,7 @@ _delimeter_tokenizer (std::string &data, std::vector<std::string> &tokens,
   boost::split(tokens, data, boost::is_any_of(delimeter));
 }
 
-typedef boost::function<void(std::string&,std::vector<std::string>&)> TokenizerType;
+typedef std::function<void(std::string&,std::vector<std::string>&)> TokenizerType;
 
 int main(void) {
   std::string data = "a\rb\rc\r";
